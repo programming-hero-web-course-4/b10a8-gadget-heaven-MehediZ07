@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 import { NavLink, Outlet, useLoaderData } from "react-router-dom";
 import HomeBanner from "./HomeBanner/HomeBanner";
 export default function Home() {
@@ -14,9 +15,13 @@ export default function Home() {
 
   return (
     <div className="mt-12 -mx-5 ">
+      <Helmet>
+        <title>{`Home | Gadget Pookie`}</title>
+        <meta name="description" content="Description of your page" />
+      </Helmet>
       <HomeBanner></HomeBanner>
-      <div className="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-7 ">
-        <div className="flex flex-col gap-4 sticky top-10 h-fit shadow-lg px-2 pb-2 rounded-lg">
+      <div className="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-7 px-2 max-w-7xl mx-auto">
+        <div className="flex flex-col gap-4 sticky top-10 h-fit shadow-lg mx-2 px-2 pb-2 rounded-lg">
           <NavLink
             to="/"
             className="btn btn-outline text-xs rounded-full border-2 md:text-base  btn-info"

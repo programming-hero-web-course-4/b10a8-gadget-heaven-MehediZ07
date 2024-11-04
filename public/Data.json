@@ -114,7 +114,7 @@
     "price": 59.99,
     "description": "Adjustable laptop stand for better ergonomics.",
     "specification": ["Material: Aluminum", "Adjustable height"],
-    "availability": true,
+    "availability": false,
     "rating": 4.4,
     "other_field": "Portable"
   },
@@ -126,7 +126,7 @@
     "price": 69.99,
     "description": "Noise-canceling Bluetooth headphones with great sound quality.",
     "specification": ["Battery life: 20 hours", "Water-resistant: Yes"],
-    "availability": true,
+    "availability": false,
     "rating": 4.3,
     "other_field": "Built-in microphone"
   },
@@ -198,7 +198,7 @@
     "price": 899.99,
     "description": "Professional DSLR camera with interchangeable lenses.",
     "specification": ["Megapixels: 24MP", "Video: 1080p"],
-    "availability": true,
+    "availability": false,
     "rating": 4.9,
     "other_field": "Includes lens kit"
   },
@@ -234,7 +234,7 @@
     "price": 119.99,
     "description": "1TB external hard drive for additional storage.",
     "specification": ["Transfer speed: 5400 RPM", "USB 3.0"],
-    "availability": true,
+    "availability": false,
     "rating": 4.7,
     "other_field": "Compact design"
   }

@@ -7,8 +7,8 @@ export default function Root() {
     backgroundColor: "#e0aeff",
   };
   return (
-    <div className="max-w-7xl mx-auto  ">
-      <div className="-ml-10 lg:-ml-8 xl:ml-10">
+    <div className="  ">
+      <div className="-ml-10 lg:-ml-8 xl:ml-10 mx-auto">
         <NavBar></NavBar>
       </div>
       <Outlet></Outlet>

@@ -2,10 +2,10 @@ import { default as React } from "react";
 import { FaRegHeart } from "react-icons/fa6";
 import { GiBowTieRibbon } from "react-icons/gi";
 import { IoMdCart } from "react-icons/io";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 
-// import "./NavBar.css";
 const NavBar = () => {
+  const { pathname } = useLocation();
   const links = (
     <>
       <li>
@@ -16,14 +16,14 @@ const NavBar = () => {
             isActive
               ? {
                   fontWeight: "600",
-                  color: "#fff",
+                  color: pathname === "/" ? "#fff" : "#374151",
                   textDecoration: "underline",
                   backgroundColor: "transparent",
                 }
               : {
                   fontWeight: "400",
                   backgroundColor: "transparent",
-                  color: "#fff",
+                  color: pathname === "/" ? "#fff" : "#374151",
                 }
           }
         >
@@ -33,24 +33,24 @@ const NavBar = () => {
       <li>
         <NavLink
           className="navlink"
-          to="/listedBooks"
+          to="/statistics"
           style={({ isActive }) =>
             isActive
               ? {
                   fontWeight: "600",
-                  color: "#fff",
+                  color: pathname === "/" ? "#fff" : "#374151",
                   textDecoration: "underline",
                   backgroundColor: "transparent",
                 }
               : {
                   fontWeight: "400",
                   backgroundColor: "transparent",
-                  color: "#fff",
+                  color: pathname === "/" ? "#fff" : "#374151",
                 }
           }
           className="mx-1"
         >
-          Listed Books
+          Statistics
         </NavLink>
       </li>
       <li>
@@ -61,18 +61,40 @@ const NavBar = () => {
             isActive
               ? {
                   fontWeight: "600",
-                  color: "#fff",
+                  color: pathname === "/" ? "#fff" : "#374151",
                   textDecoration: "underline",
                   backgroundColor: "transparent",
                 }
               : {
                   fontWeight: "400",
                   backgroundColor: "transparent",
-                  color: "#fff",
+                  color: pathname === "/" ? "#fff" : "#374151",
                 }
           }
         >
-          Page to Read
+          Dashboard
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          className="navlink"
+          to="/login"
+          style={({ isActive }) =>
+            isActive
+              ? {
+                  fontWeight: "600",
+                  color: pathname === "/" ? "#fff" : "#374151",
+                  textDecoration: "underline",
+                  backgroundColor: "transparent",
+                }
+              : {
+                  fontWeight: "400",
+                  backgroundColor: "transparent",
+                  color: pathname === "/" ? "#fff" : "#374151",
+                }
+          }
+        >
+          Login
         </NavLink>
       </li>
     </>
@@ -80,11 +102,11 @@ const NavBar = () => {
 
   return (
     <nav
-      className={`navbar  max-w-6xl px-4 mt-[.2rem] md:px-10 mx-auto z-[1000]  `}
+      className={`navbar max-w-6xl mx-auto px-4 mt-[.2rem] md:px-10  z-[1000]  `}
     >
       <div className="navbar-start">
         <div className="dropdown ml-4">
-          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+          <div tabIndex={0} role="button" className="btn btn-ghost  lg:hidden">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5 text-pink-400"
@@ -109,7 +131,7 @@ const NavBar = () => {
         </div>
         <Link
           to="/"
-          className="btn-ghost hover:bg-transparent text-xl font-bold text-pink-400"
+          className="btn-ghost hover:bg-transparent text-xl font-semibold text-pink-400"
         >
           <span className="text-[1.65rem]">G</span>adget
           <span className="text-[#68cdff]  font-semibold text-xl relative">
@@ -120,8 +142,8 @@ const NavBar = () => {
           </span>
         </Link>
       </div>
-      <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">{links}</ul>
+      <div className="navbar-center hidden  lg:flex">
+        <ul className={`menu menu-horizontal px-1 `}>{links}</ul>
       </div>
       <div className="navbar-end">
         <NavLink
