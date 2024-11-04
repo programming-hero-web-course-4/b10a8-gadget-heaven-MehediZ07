@@ -1,7 +1,9 @@
-import { default as React, useEffect, useState } from "react";
+import { default as React } from "react";
 import { FaRegHeart } from "react-icons/fa6";
+import { GiBowTieRibbon } from "react-icons/gi";
 import { IoMdCart } from "react-icons/io";
 import { Link, NavLink } from "react-router-dom";
+
 // import "./NavBar.css";
 const NavBar = () => {
   const links = (
@@ -76,40 +78,16 @@ const NavBar = () => {
     </>
   );
 
-  const [showNav, setShowNav] = useState(true);
-  const [lastScrollTop, setLastScrollTop] = useState(0);
-
-  const handleScroll = () => {
-    const currentScroll =
-      window.pageYOffset || document.documentElement.scrollTop;
-    if (currentScroll > lastScrollTop) {
-      setShowNav(false);
-    } else {
-      setShowNav(true);
-    }
-
-    setLastScrollTop(currentScroll <= 0 ? 0 : currentScroll); // For mobile or negative scrolling
-  };
-
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [lastScrollTop]);
-
   return (
     <nav
-      className={`navbar  fixed top-0  max-w-6xl px-4 mt-1 md:px-10 mx-auto z-[1000]  ${
-        showNav ? "translate-y-0" : "-translate-y-full"
-      }`}
+      className={`navbar  max-w-6xl px-4 mt-[.2rem] md:px-10 mx-auto z-[1000]  `}
     >
       <div className="navbar-start">
-        <div className="dropdown">
+        <div className="dropdown ml-4">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5 text-[#23BE0A]"
+              className="h-5 w-5 text-pink-400"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -124,16 +102,22 @@ const NavBar = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content text-[#23BE0A] border-1 solid border-[#23BE0A] rounded-box z-[1] mt-3 w-52 p-2 shadow"
+            className="menu menu-sm dropdown-content bg-pink-400 bg-opacity-70 backdrop-blur-sm  border-1 solid border-pink-400 rounded-box z-[1] mt-0 w-40 ml-4 p-2 shadow"
           >
             {links}
           </ul>
         </div>
         <Link
           to="/"
-          className="btn-ghost hover:bg-transparent text-xl font-semibold"
+          className="btn-ghost hover:bg-transparent text-xl font-bold text-pink-400"
         >
-          Book<span className="text-[#23BE0A]">Haven</span>
+          <span className="text-[1.65rem]">G</span>adget
+          <span className="text-[#68cdff]  font-semibold text-xl relative">
+            Pookie
+          </span>
+          <span className="absolute top-[1.2rem]  text-base rotate-45">
+            <GiBowTieRibbon />
+          </span>
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
@@ -157,8 +141,8 @@ const NavBar = () => {
                 }
           }
         >
-          <div className="">
-            <span className=" absolute top-2 text-xs badge badge-secondary">
+          <div className="relative">
+            <span className=" absolute translate-x-2 -top-[1.1rem] text-xs badge ">
               1
             </span>
             <div className="text-xl">
@@ -183,8 +167,8 @@ const NavBar = () => {
                 }
           }
         >
-          <div className="">
-            <span className=" absolute top-2 text-xs badge badge-secondary">
+          <div className="relative">
+            <span className=" absolute translate-x-2  -top-[1.1rem] text-xs badge badge-secondary">
               1
             </span>
             <div className="text-xl">
