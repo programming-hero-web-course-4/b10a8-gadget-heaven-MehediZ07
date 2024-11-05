@@ -1,6 +1,11 @@
 // import { useEffect, useState } from "react";
 import { FaRegHeart } from "react-icons/fa6";
 import { useLoaderData, useParams } from "react-router-dom";
+import {
+  addToStoredCurtList,
+  addToStoredWishList,
+} from "../../Utility/Utility";
+
 export default function ProductDetails() {
   const { id } = useParams();
   console.log(id);
@@ -12,6 +17,14 @@ export default function ProductDetails() {
   //   console.log(filteredProduct);
   //   setProduct(filteredProduct);
   // }, [data, id]);
+
+  const handleAddToAddCurt = (id) => {
+    addToStoredCurtList(id);
+  };
+
+  const handleAddToWishList = (id) => {
+    addToStoredWishList(id);
+  };
 
   return (
     <div>
@@ -58,12 +71,16 @@ export default function ProductDetails() {
           <p className="text-sm text-black font-semibold">Ratting</p>
           <div className="flex gap-4 justify-start items-center">
             <button
+              onClick={() => handleAddToAddCurt(id)}
               disabled={!product.availability}
               className="btn text-white bg-gradient-to-r from-[#9538E2] via-{#e0aeff} to-[#68cdff] "
             >
               Secondary
             </button>
-            <button className="btn btn-secondary">
+            <button
+              onClick={() => handleAddToWishList(id)}
+              className="btn btn-secondary"
+            >
               <FaRegHeart></FaRegHeart>
             </button>
           </div>
