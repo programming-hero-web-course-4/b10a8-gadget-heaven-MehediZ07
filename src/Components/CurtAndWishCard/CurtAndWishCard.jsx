@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 export default function CurtAndWishCard({ product }) {
-  console.log(product);
   return (
     <div className="mb-4 mt-6 flex flex-col md:flex-row border solid border-gray-400 rounded-xl p-4">
       <img
@@ -12,6 +11,7 @@ export default function CurtAndWishCard({ product }) {
         <h2 className="text-2xl font-bold">{product.product_title}</h2>
         <h2 className="my-3">Price: {product.price}</h2>
         <h2 className="my-3">Price: {product.description}</h2>
+        <h2 className="my-3">Price: {product.rating}</h2>
 
         <div className="flex justify-start flex-grow-0 my-2 gap-6 overflow-x-auto whitespace-nowrap">
           <Link Link to={`/dashboard`}>

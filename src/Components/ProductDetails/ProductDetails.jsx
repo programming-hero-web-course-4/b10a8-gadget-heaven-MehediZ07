@@ -1,6 +1,8 @@
 // import { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { FaRegHeart } from "react-icons/fa6";
-import { useLoaderData, useParams } from "react-router-dom";
+import { IoMdCart } from "react-icons/io";
+import { useLoaderData, useNavigate, useParams } from "react-router-dom";
 import {
   addToStoredCurtList,
   addToStoredWishList,
@@ -24,6 +26,26 @@ export default function ProductDetails() {
 
   const handleAddToWishList = (id) => {
     addToStoredWishList(id);
+  };
+  const navigate = useNavigate();
+
+  const handleRefresh = () => {
+    navigate(`/Details/${id}`);
+  };
+
+  const [stepsBack, setStepsBack] = useState(1);
+  const handleCount = () => {
+    setStepsBack(stepsBack + 1);
+  };
+
+  const handleGoBack = () => {
+    navigate(-stepsBack);
+  };
+
+  const [added, setAdded] = useState(true);
+
+  const handleAddedWish = () => {
+    setAdded(false);
   };
 
   return (
@@ -71,17 +93,36 @@ export default function ProductDetails() {
           <p className="text-sm text-black font-semibold">Ratting</p>
           <div className="flex gap-4 justify-start items-center">
             <button
-              onClick={() => handleAddToAddCurt(id)}
+              onClick={() => {
+                handleAddToAddCurt(id);
+                handleRefresh();
+                handleCount();
+              }}
               disabled={!product.availability}
               className="btn text-white bg-gradient-to-r from-[#9538E2] via-{#e0aeff} to-[#68cdff] "
             >
-              Secondary
+              <IoMdCart />
+              Add to Cart
             </button>
             <button
-              onClick={() => handleAddToWishList(id)}
+              disabled={!added}
+              onClick={() => {
+                handleAddToWishList(id);
+                handleRefresh();
+                handleAddedWish();
+                handleCount();
+              }}
               className="btn btn-secondary"
             >
               <FaRegHeart></FaRegHeart>
+            </button>
+            <button
+              onClick={() => {
+                handleGoBack();
+              }}
+              className="btn btn-secondary"
+            >
+              BackGo
             </button>
           </div>
         </div>

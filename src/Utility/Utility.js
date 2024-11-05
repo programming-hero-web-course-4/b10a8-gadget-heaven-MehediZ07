@@ -1,7 +1,8 @@
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+
 const getStoredCurtList = () => {
-  const storedListStr = localStorage.getItem("read-list");
+  const storedListStr = localStorage.getItem("curt-list");
   if (storedListStr) {
     const storedList = JSON.parse(storedListStr);
     return storedList;
@@ -12,15 +13,11 @@ const getStoredCurtList = () => {
 
 const addToStoredCurtList = (id) => {
   const storedList = getStoredCurtList();
-  if (storedList.includes(id)) {
-    console.log(id, "already exists in the read list");
-  } else {
-    storedList.push(id);
-    const storedListStr = JSON.stringify(storedList);
-    localStorage.setItem("read-list", storedListStr);
+  storedList.push(id);
+  const storedListStr = JSON.stringify(storedList);
+  localStorage.setItem("curt-list", storedListStr);
 
-    toast("✅ Product added to your curt.");
-  }
+  toast("✅ Product added to your curt.");
 };
 
 const removeFromCurtList = (id) => {
@@ -29,7 +26,7 @@ const removeFromCurtList = (id) => {
     const index = storedList.indexOf(id);
     storedList.splice(index, 1);
     const storedListStr = JSON.stringify(storedList);
-    localStorage.setItem("read-list", storedListStr);
+    localStorage.setItem("curt-list", storedListStr);
     toast("❌ This Product is remove to your curt list.");
   } else {
   }
@@ -63,7 +60,7 @@ const removeFromWishList = (id) => {
     const index = storedList.indexOf(id);
     storedList.splice(index, 1);
     const storedListStr = JSON.stringify(storedList);
-    localStorage.setItem("read-list", storedListStr);
+    localStorage.setItem("wish-list", storedListStr);
     toast("❌ This Product is remove to your wish list.");
   } else {
   }

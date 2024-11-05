@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { FaRegHeart } from "react-icons/fa6";
 import { GiBowTieRibbon } from "react-icons/gi";
 import { IoMdCart } from "react-icons/io";
@@ -6,34 +6,34 @@ import { Link, NavLink, useLocation } from "react-router-dom";
 import { getStoredCurtList, getStoredWishList } from "../Utility/Utility";
 
 const NavBar = () => {
-  const [readList, setReadList] = useState([]);
-  const [wishList, setWishList] = useState([]);
-  const [allBooks, setPlayers] = useState([]);
-  useEffect(() => {
-    fetch("./Data.json")
-      .then((res) => res.json())
-      .then((data) => setPlayers(data));
-  }, []);
+  // const [readList, setReadList] = useState([]);
+  // const [wishList, setWishList] = useState([]);
+  // const [allBooks, setPlayers] = useState([]);
+  // useEffect(() => {
+  //   fetch("./Data.json")
+  //     .then((res) => res.json())
+  //     .then((data) => setPlayers(data));
+  // }, []);
 
-  useEffect(() => {
-    const storedReadList = getStoredCurtList();
-    const storedReadListInt = storedReadList.map((id) => parseInt(id));
+  // useEffect(() => {
+  //   const storedReadList = getStoredCurtList();
+  //   const storedReadListInt = storedReadList.map((id) => parseInt(id));
 
-    const readBookList = allBooks.filter((book) =>
-      storedReadListInt.includes(book.bookId)
-    );
+  //   const readBookList = allBooks.filter((book) =>
+  //     storedReadListInt.includes(book.bookId)
+  //   );
 
-    setReadList(readBookList);
+  //   setReadList(readBookList);
 
-    const storedWishList = getStoredWishList();
-    const storedWishListInt = storedWishList.map((id) => parseInt(id));
+  //   const storedWishList = getStoredWishList();
+  //   const storedWishListInt = storedWishList.map((id) => parseInt(id));
 
-    const wishBookList = allBooks.filter((book) =>
-      storedWishListInt.includes(book.bookId)
-    );
+  //   const wishBookList = allBooks.filter((book) =>
+  //     storedWishListInt.includes(book.bookId)
+  //   );
 
-    setWishList(wishBookList);
-  }, []);
+  //   setWishList(wishBookList);
+  // }, []);
 
   const { pathname } = useLocation();
   const links = (
@@ -195,7 +195,7 @@ const NavBar = () => {
         >
           <div className="relative">
             <span className=" absolute translate-x-2 -top-[1.1rem] text-xs badge ">
-              {wishList.length}
+              {getStoredCurtList().length}
             </span>
             <div className="text-xl">
               <IoMdCart />
