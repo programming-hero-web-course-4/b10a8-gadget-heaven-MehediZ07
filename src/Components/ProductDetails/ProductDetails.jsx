@@ -1,10 +1,8 @@
 // import { useEffect, useState } from "react";
 import { useState } from "react";
-import { FaRegStar, FaStar } from "react-icons/fa";
 import { FaRegHeart } from "react-icons/fa6";
 import { IoMdCart } from "react-icons/io";
 import { RiArrowGoBackLine } from "react-icons/ri";
-import Rating from "react-rating";
 import { useLoaderData, useNavigate, useParams } from "react-router-dom";
 import {
   addToStoredCurtList,
@@ -53,6 +51,8 @@ export default function ProductDetails() {
     console.log(newRating);
   };
 
+  const [rating, setRating] = useState(product.rating);
+
   return (
     <div>
       <nav className="h-56  bg-gradient-to-b from-[#64109c] via-[#d084fe] to-[#a8e2ff] pt-6">
@@ -94,22 +94,16 @@ export default function ProductDetails() {
               <li className="text-xs ml-6  text-gray-500 list-decimal">{p}</li>
             ))}
           </ol>
-          <Rating
-            initialRating={product.rating}
-            emptySymbol={<FaRegStar size={20} color="#ffcc26" />}
-            fullSymbol={<FaStar size={20} color="#ffcc26" />}
-            fractions={2}
-            readonly
-          />
           <ReactStars
-            count={product.rating}
-            onChange={ratingChanged}
+            count={5}
             size={24}
             isHalf={true}
             emptyIcon={<i className="far fa-star"></i>}
             halfIcon={<i className="fa fa-star-half-alt"></i>}
             fullIcon={<i className="fa fa-star"></i>}
-            activeColor="#ffd700"
+            activeColor="#ffcc26"
+            value={rating} // Set the rating dynamically
+            onChange={(newRating) => setRating(newRating)} // Update the rating on change
           />
           ,
           <div className="flex flex-grow gap-4 justify-start items-center">

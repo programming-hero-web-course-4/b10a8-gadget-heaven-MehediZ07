@@ -8,7 +8,7 @@
     "description": "Compact and lightweight smartphone with basic features.",
     "specification": ["Storage: 32GB", "Battery: 2500mAh"],
     "availability": true,
-    "rating": 4.1,
+    "rating": 3,
     "other_field": "Ideal for students"
   },
   {
@@ -24,7 +24,7 @@
       "Battery life: 14 hours"
     ],
     "availability": true,
-    "rating": 4.7,
+    "rating": 4.5,
     "other_field": "Security features"
   },
   {
@@ -36,7 +36,7 @@
     "description": "Affordable laptop perfect for students and everyday use.",
     "specification": ["RAM: 8GB", "Storage: 256GB SSD"],
     "availability": true,
-    "rating": 4.5,
+    "rating": 4,
     "other_field": "Lightweight design"
   },
   {
@@ -52,7 +52,7 @@
       "Camera: Triple lens"
     ],
     "availability": true,
-    "rating": 4.8,
+    "rating": 3.5,
     "other_field": "Water-resistant"
   },
   {
@@ -76,7 +76,7 @@
     "description": "Durable case to protect your smartphone.",
     "specification": ["Material: Silicone", "Shockproof"],
     "availability": true,
-    "rating": 4.5,
+    "rating": 2.5,
     "other_field": "Slim design"
   },
   {
@@ -88,7 +88,7 @@
     "description": "A high-precision wireless mouse for comfortable usage.",
     "specification": ["Battery life: 12 months", "Wireless range: 10m"],
     "availability": true,
-    "rating": 4.5,
+    "rating": 3,
     "other_field": "Lightweight design"
   },
   {
@@ -103,7 +103,7 @@
       "Key lifespan: 50 million presses"
     ],
     "availability": true,
-    "rating": 4.7,
+    "rating": 3.9,
     "other_field": "Ergonomic wrist rest"
   },
   {
@@ -115,7 +115,7 @@
     "description": "Adjustable laptop stand for better ergonomics.",
     "specification": ["Material: Aluminum", "Adjustable height"],
     "availability": false,
-    "rating": 4.4,
+    "rating": 4,
     "other_field": "Portable"
   },
   {
@@ -127,7 +127,7 @@
     "description": "Noise-canceling Bluetooth headphones with great sound quality.",
     "specification": ["Battery life: 20 hours", "Water-resistant: Yes"],
     "availability": false,
-    "rating": 4.3,
+    "rating": 2,
     "other_field": "Built-in microphone"
   },
   {
@@ -139,7 +139,7 @@
     "description": "Bluetooth portable speaker with high-quality sound.",
     "specification": ["Battery life: 15 hours", "Water-resistant: Yes"],
     "availability": true,
-    "rating": 4.5,
+    "rating": 5,
     "other_field": "Built-in microphone"
   },
   {
@@ -163,7 +163,7 @@
     "description": "A stunning 4K monitor perfect for gaming and productivity.",
     "specification": ["Screen size: 27 inches", "Refresh rate: 144Hz"],
     "availability": true,
-    "rating": 4.8,
+    "rating": 3.5,
     "other_field": "VESA mount compatible"
   },
   {
@@ -175,7 +175,7 @@
     "description": "Fast wireless charger compatible with most smartphones.",
     "specification": ["Output: 10W", "Overcharge protection: Yes"],
     "availability": true,
-    "rating": 4.6,
+    "rating": 2.5,
     "other_field": "Sleek design"
   },
   {
@@ -187,7 +187,7 @@
     "description": "High-definition action camera for capturing your adventures.",
     "specification": ["Resolution: 4K", "Waterproof case: Included"],
     "availability": true,
-    "rating": 4.7,
+    "rating": 4,
     "other_field": "Wide-angle lens"
   },
   {
@@ -199,7 +199,7 @@
     "description": "Professional DSLR camera with interchangeable lenses.",
     "specification": ["Megapixels: 24MP", "Video: 1080p"],
     "availability": false,
-    "rating": 4.9,
+    "rating": 2,
     "other_field": "Includes lens kit"
   },
   {
@@ -211,7 +211,7 @@
     "description": "Sturdy tripod for stable shots.",
     "specification": ["Material: Aluminum", "Height: Adjustable"],
     "availability": true,
-    "rating": 4.6,
+    "rating": 3,
     "other_field": "Lightweight"
   },
   {
@@ -223,7 +223,7 @@
     "description": "High-quality webcam for streaming and video calls.",
     "specification": ["Resolution: 1080p", "Built-in microphone"],
     "availability": true,
-    "rating": 4.8,
+    "rating": 3.5,
     "other_field": "Plug and play"
   },
   {
@@ -235,7 +235,7 @@
     "description": "1TB external hard drive for additional storage.",
     "specification": ["Transfer speed: 5400 RPM", "USB 3.0"],
     "availability": false,
-    "rating": 4.7,
+    "rating": 4.5,
     "other_field": "Compact design"
   }
 ]
