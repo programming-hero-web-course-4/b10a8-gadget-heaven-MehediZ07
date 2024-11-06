@@ -26,7 +26,7 @@ const removeFromCurtList = (id) => {
 
   if (index !== -1) {
     storedList.splice(index, 1);
-    console.log("Updated list after removal:", storedList);
+
     const storedListStr = JSON.stringify(storedList);
     localStorage.setItem("curt-list", storedListStr);
     toast("❌ This Product is remove to your Curt list.");
@@ -61,7 +61,7 @@ const removeFromWishList = (id) => {
 
   if (index !== -1) {
     storedList.splice(index, 1);
-    console.log("Updated list after removal:", storedList);
+
     const storedListStr = JSON.stringify(storedList);
     localStorage.setItem("wish-list", storedListStr);
     toast("❌ This Product is remove to your wish list.");

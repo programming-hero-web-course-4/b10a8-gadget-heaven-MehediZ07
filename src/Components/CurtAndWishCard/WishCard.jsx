@@ -61,8 +61,8 @@ export default function WishCard({ product }) {
               halfIcon={<i className="fa fa-star-half-alt"></i>}
               fullIcon={<i className="fa fa-star"></i>}
               activeColor="#ffcc26"
-              value={rating} // Set the rating dynamically
-              onChange={(newRating) => setRating(newRating)} // Update the rating on change
+              value={rating}
+              onChange={(newRating) => setRating(newRating)}
             />
           </h2>
           <div className="flex justify-start items-center flex-grow-0 my-2 gap-6 overflow-x-auto whitespace-nowrap">
@@ -75,14 +75,6 @@ export default function WishCard({ product }) {
             >
               Add To Curt
             </button>
-            {/* <Link Link to="/dashboard">
-              <button
-                onClick={() => handleRemoveProduct(product.product_id)}
-                className="text-3xl  rounded-full p-0 m-0 font-semibold hover:red-500 text-red-500 bg-white"
-              >
-                <MdDeleteForever />
-              </button>
-            </Link> */}
           </div>
         </div>
       </div>

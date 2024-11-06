@@ -1,7 +1,7 @@
 [
   {
     "category_id": 1,
-    "category_name": "Phone"
+    "category_name": "Accessories"
   },
   {
     "category_id": 2,
@@ -9,7 +9,7 @@
   },
   {
     "category_id": 3,
-    "category_name": "Accessories"
+    "category_name": "Phone"
   },
   {
     "category_id": 4,

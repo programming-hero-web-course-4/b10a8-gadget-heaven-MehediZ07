@@ -165,6 +165,7 @@ export default function Dashboard() {
                 </div>
                 <div>
                   <button
+                    disabled={curtList.length === 0}
                     onClick={() => {
                       openModal();
                       handlePurchase();

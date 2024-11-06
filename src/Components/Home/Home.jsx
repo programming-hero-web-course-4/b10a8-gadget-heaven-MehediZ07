@@ -5,14 +5,6 @@ import HomeBanner from "./HomeBanner/HomeBanner";
 export default function Home() {
   const categories = useLoaderData();
 
-  // const [categories, setCategories] = useState([]);
-
-  // useEffect(() => {
-  //   fetch("./Categories.json")
-  //     .then((res) => res.json())
-  //     .then((data) => setCategories(data));
-  // }, []);
-
   return (
     <div className="mt-12 -mx-5 ">
       <Helmet>

@@ -1,4 +1,3 @@
-// import { useEffect, useState } from "react";
 import { useState } from "react";
 import { FaRegHeart } from "react-icons/fa6";
 import { IoMdCart } from "react-icons/io";
@@ -45,10 +44,6 @@ export default function ProductDetails() {
 
   const handleAddedWish = () => {
     setAdded(false);
-  };
-
-  const ratingChanged = (newRating) => {
-    console.log(newRating);
   };
 
   const [rating, setRating] = useState(product.rating);
@@ -104,8 +99,8 @@ export default function ProductDetails() {
               halfIcon={<i className="fa fa-star-half-alt"></i>}
               fullIcon={<i className="fa fa-star"></i>}
               activeColor="#ffcc26"
-              value={rating} // Set the rating dynamically
-              onChange={(newRating) => setRating(newRating)} // Update the rating on change
+              value={rating}
+              onChange={(newRating) => setRating(newRating)}
             />
           </h2>
 

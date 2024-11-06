@@ -17,7 +17,7 @@ export default function AllProduct() {
       return;
     }
     const filteredCategory = [...data].filter((e) => e.category === Category);
-    console.log(filteredCategory);
+
     setProduct(filteredCategory);
   }, [data, Category]);
 
