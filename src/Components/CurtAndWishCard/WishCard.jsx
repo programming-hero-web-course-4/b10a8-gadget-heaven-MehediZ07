@@ -1,5 +1,17 @@
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { addToStoredCurtList } from "../../Utility/Utility";
+
 export default function WishCard({ product }) {
+  const navigate = useNavigate();
+
+  const handleRefresh = () => {
+    navigate(`/dashboard`);
+  };
+
+  const handleAddToAddCurt = (id) => {
+    addToStoredCurtList(id);
+  };
+
   return (
     <div>
       <div className="mb-4 mt-6 flex flex-col md:flex-row border solid border-gray-400 rounded-xl p-4">
@@ -15,11 +27,15 @@ export default function WishCard({ product }) {
           <h2 className="my-3">Price: {product.rating}</h2>
 
           <div className="flex justify-start flex-grow-0 my-2 gap-6 overflow-x-auto whitespace-nowrap">
-            <Link Link to={`/dashboard`}>
-              <button className="btn  text-white  rounded-full bg-gradient-to-br  from-[#b356ff] via-[#b050ff] to-[#8cd3f6]">
-                Add To Curt
-              </button>
-            </Link>
+            <button
+              onClick={() => {
+                handleAddToAddCurt(product.product_id);
+                handleRefresh();
+              }}
+              className="btn  text-white  rounded-full bg-gradient-to-br  from-[#b356ff] via-[#b050ff] to-[#8cd3f6]"
+            >
+              Add To Curt
+            </button>
           </div>
         </div>
       </div>

@@ -1,24 +1,21 @@
 // import { useEffect, useState } from "react";
-import React, { useState } from "react";
+import { useState } from "react";
+import { FaRegStar, FaStar } from "react-icons/fa";
 import { FaRegHeart } from "react-icons/fa6";
 import { IoMdCart } from "react-icons/io";
+import { RiArrowGoBackLine } from "react-icons/ri";
+import Rating from "react-rating";
 import { useLoaderData, useNavigate, useParams } from "react-router-dom";
 import {
   addToStoredCurtList,
   addToStoredWishList,
 } from "../../Utility/Utility";
-
 export default function ProductDetails() {
   const { id } = useParams();
   console.log(id);
   const data = useLoaderData();
-  // const [product, setProduct] = useState({});
+
   const product = data.find((e) => e.product_id === parseInt(id));
-  // useEffect(() => {
-  //   const filteredProduct = data.find((e) => e.product_id === parseInt(id));
-  //   console.log(filteredProduct);
-  //   setProduct(filteredProduct);
-  // }, [data, id]);
 
   const handleAddToAddCurt = (id) => {
     addToStoredCurtList(id);
@@ -68,16 +65,16 @@ export default function ProductDetails() {
             alt=""
           />
         </div>
-        <div className=" space-y-2">
+        <div className=" flex flex-col space-y-2">
           <h1 className="text-xl font-semibold">{product.product_title}</h1>
           <p className="text-sm text-gray-700">Price: ${product.price}</p>
 
           {product.availability ? (
-            <button className="btn btn-xs rounded-full border border-green-500 solid bg-green-50 text-green-500">
+            <button className="btn btn-xs w-fit rounded-full border border-green-500 solid bg-green-50 text-green-500">
               In stoke
             </button>
           ) : (
-            <button className="btn btn-xs rounded-full border border-red-400 solid bg-red-50 text-red-400">
+            <button className="btn btn-xs w-fit rounded-full border border-red-400 solid bg-red-50 text-red-400">
               Out of stock
             </button>
           )}
@@ -90,8 +87,15 @@ export default function ProductDetails() {
               <li className="text-xs ml-6  text-gray-500 list-decimal">{p}</li>
             ))}
           </ol>
-          <p className="text-sm text-black font-semibold">Ratting</p>
-          <div className="flex gap-4 justify-start items-center">
+
+          <Rating
+            initialRating={product.rating}
+            emptySymbol={<FaRegStar size={20} color="#ffcc26" />}
+            fullSymbol={<FaStar size={20} color="#ffcc26" />}
+            fractions={2}
+            readonly
+          />
+          <div className="flex flex-grow gap-4 justify-start items-center">
             <button
               onClick={() => {
                 handleAddToAddCurt(id);
@@ -99,7 +103,7 @@ export default function ProductDetails() {
                 handleCount();
               }}
               disabled={!product.availability}
-              className="btn text-white bg-gradient-to-r from-[#9538E2] via-{#e0aeff} to-[#68cdff] "
+              className="btn text-white bg-gradient-to-r   from-[#9538E2] via-{#e0aeff} to-[#68cdff] "
             >
               <IoMdCart />
               Add to Cart
@@ -120,9 +124,9 @@ export default function ProductDetails() {
               onClick={() => {
                 handleGoBack();
               }}
-              className="btn btn-secondary"
+              className="btn font-bold"
             >
-              BackGo
+              <RiArrowGoBackLine />
             </button>
           </div>
         </div>

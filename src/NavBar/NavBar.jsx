@@ -6,35 +6,6 @@ import { Link, NavLink, useLocation } from "react-router-dom";
 import { getStoredCurtList, getStoredWishList } from "../Utility/Utility";
 
 const NavBar = () => {
-  // const [readList, setReadList] = useState([]);
-  // const [wishList, setWishList] = useState([]);
-  // const [allBooks, setPlayers] = useState([]);
-  // useEffect(() => {
-  //   fetch("./Data.json")
-  //     .then((res) => res.json())
-  //     .then((data) => setPlayers(data));
-  // }, []);
-
-  // useEffect(() => {
-  //   const storedReadList = getStoredCurtList();
-  //   const storedReadListInt = storedReadList.map((id) => parseInt(id));
-
-  //   const readBookList = allBooks.filter((book) =>
-  //     storedReadListInt.includes(book.bookId)
-  //   );
-
-  //   setReadList(readBookList);
-
-  //   const storedWishList = getStoredWishList();
-  //   const storedWishListInt = storedWishList.map((id) => parseInt(id));
-
-  //   const wishBookList = allBooks.filter((book) =>
-  //     storedWishListInt.includes(book.bookId)
-  //   );
-
-  //   setWishList(wishBookList);
-  // }, []);
-
   const { pathname } = useLocation();
   const links = (
     <>
@@ -177,7 +148,7 @@ const NavBar = () => {
       </div>
       <div className="navbar-end">
         <NavLink
-          to="/singIn"
+          to="/dashboard"
           className="p-1 cursor-pointer rounded-full ml-2 text-base border-2 solid "
           style={({ isActive }) =>
             isActive
@@ -203,7 +174,7 @@ const NavBar = () => {
           </div>
         </NavLink>
         <NavLink
-          to="/singUp"
+          to="/dashboard"
           className="p-1 cursor-pointer rounded-full ml-2 text-base border-2 solid "
           style={({ isActive }) =>
             isActive

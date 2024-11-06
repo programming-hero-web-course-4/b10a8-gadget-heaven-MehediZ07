@@ -1,3 +1,4 @@
+import { MdDeleteForever } from "react-icons/md";
 import { Link } from "react-router-dom";
 export default function CurtAndWishCard({ product }) {
   return (
@@ -14,14 +15,9 @@ export default function CurtAndWishCard({ product }) {
         <h2 className="my-3">Price: {product.rating}</h2>
 
         <div className="flex justify-start flex-grow-0 my-2 gap-6 overflow-x-auto whitespace-nowrap">
-          <Link Link to={`/dashboard`}>
-            <button className="btn btn-sm rounded-full border-[#23BE0A] font-semibold hover:bg-[#23BE0A] text-[#fff] bg-[#23BE0A]">
-              Add to curt
-            </button>
-          </Link>
-          <Link Link to={`/dashboard`}>
-            <button className="btn btn-sm rounded-full border-[#23BE0A] font-semibold hover:bg-[#23BE0A] text-[#fff] bg-[#23BE0A]">
-              Add to wish
+          <Link Link to="/dashboard">
+            <button className="text-3xl  rounded-full p-0 m-0 font-semibold hover:red-500 text-red-500 bg-white">
+              <MdDeleteForever />
             </button>
           </Link>
         </div>

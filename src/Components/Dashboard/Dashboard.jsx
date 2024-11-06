@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
-import { useLoaderData, useNavigate } from "react-router-dom";
+import { Link, useLoaderData, useNavigate } from "react-router-dom";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
+import modalImage from "../../assets/image/Group.png";
 import { getStoredCurtList, getStoredWishList } from "../../Utility/Utility";
 import CurtAndWishCard from "../CurtAndWishCard/CurtAndWishCard";
 import WishCard from "../CurtAndWishCard/WishCard";
+
 export default function Dashboard() {
   const [curtList, setCurtList] = useState([]);
   const [wishList, setWishList] = useState([]);
@@ -23,7 +25,6 @@ export default function Dashboard() {
     );
 
     setCurtList(readBookList);
-
     const storedWishList = getStoredWishList();
     const storedWishListInt = storedWishList.map((id) => parseInt(id));
 
@@ -54,14 +55,9 @@ export default function Dashboard() {
     }
   };
 
-  // const totalPrices = curtList.map((p) => setTotalPrice(totalPrice + p.price));
-
-  // const totalPrices = curtList.reduce((total, p) => total + p.price, 0);
-  // setTotalPrice(totalPrices);
-
   useEffect(() => {
     const totalPrices = curtList.reduce((total, p) => total + p.price, 0);
-    setTotalPrice(totalPrices); // Update the total price state
+    setTotalPrice(totalPrices);
   }, [curtList]);
 
   const navigate = useNavigate();
@@ -70,14 +66,20 @@ export default function Dashboard() {
     navigate("/");
   };
 
-  //   const handlePurchase = () => {
-  //     clearLocalStorage();
-  //   };
-  // };
+  const handleRefresh = () => {
+    navigate(`/dashboard`);
+  };
 
   const handlePurchase = () => {
     const storedListStr = JSON.stringify([]);
     localStorage.setItem("curt-list", storedListStr);
+  };
+
+  const openModal = () => {
+    if (curtList.length === 0) {
+      return;
+    }
+    document.getElementById("my_modal_5").showModal();
   };
 
   return (
@@ -86,32 +88,36 @@ export default function Dashboard() {
         <title>Dashboard | Gadget Pookie</title>
         <meta name="description" content="Dashboard" />
       </Helmet>
-      <nav className="h-56  bg-gradient-to-b  from-[#64109c] via-[#d084fe] to-[#70cfff] pt-6">
+      <nav className="h-44  bg-gradient-to-b  from-[#64109c] via-[#d084fe] to-[#70cfff] pt-6">
         <h1 className="text-2xl text-center mx-auto font-bold text-white w-[90%]  lg:w-[70%] mx auto">
-          Product Details
+          Dashboard
         </h1>
         <p className="w-[90%] text-center mx-auto text-xs md:text-sm text-gray-200  lg:w-[50%] mx auto">
-          All type of information available here, you can see details if this
-          product, so you can bay easily according to your requirements.
+          All your added cart product and wish list product available here.
         </p>
       </nav>
-      <div className="flex  -mt-28 bg-transparent max-w-6xl mx-auto">
+      <div className="flex  -mt-24 bg-transparent max-w-6xl mx-auto">
         <Tabs
           onSelect={handleTabSelect}
           className="flex flex-col w-full bg-transparent"
         >
           <TabList className="flex w-[101%] gap-4  justify-center  ring-0 p-4 bg-transparent  ">
-            {/* Left-side tabs as buttons */}
             <Tab
+              onClick={() => {
+                handleRefresh();
+              }}
               className={`px-6 py-1 btn  rounded-full  border cursor-pointer mb-2 text-center focus:outline-none ${
                 tabIndex === 0
                   ? " bg-white text-[#a73cff]"
                   : "bg-transparent text-white"
               }`}
             >
-              Curt List
+              Cart List
             </Tab>
             <Tab
+              onClick={() => {
+                handleRefresh();
+              }}
               className={`px-6 py-1 btn  rounded-full  border cursor-pointer mb-2 text-center focus:outline-none ${
                 tabIndex === 1
                   ? " bg-white text-[#a73cff]"
@@ -160,7 +166,7 @@ export default function Dashboard() {
                 <div>
                   <button
                     onClick={() => {
-                      goToHome();
+                      openModal();
                       handlePurchase();
                     }}
                     className="btn  text-white  rounded-full bg-gradient-to-br  from-[#b356ff] via-[#b050ff] to-[#8cd3f6]"
@@ -181,76 +187,25 @@ export default function Dashboard() {
           </TabPanel>
         </Tabs>
       </div>
-
-      {/* {readList.map((p) => (
-        <ProductCard key={p.product_id} product={p}></ProductCard>
-      ))} */}
+      <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
+        <div className="modal-box flex flex-col gap-4 justify-center bg-white p-6 rounded-lg shadow-lg">
+          <img className="h-10 w-10 mx-auto" src={modalImage} alt="" />
+          <h3 className="font-bold w-fit mx-auto text-lg">
+            Payment Successful!
+          </h3>
+          <p className="text-center">Thank You for Purchasing</p>
+          <p className="text-center">
+            Your Total bill: ${totalPrice.toFixed(2)}
+          </p>
+          <div className="modal-action w-full flex justify-center">
+            <form method="dialog w-full">
+              <Link to="/">
+                <button className="btn w-full">Close</button>
+              </Link>
+            </form>
+          </div>
+        </div>
+      </dialog>
     </div>
   );
 }
-
-// import React, { useState, useEffect } from 'react';
-
-// const ShoppingCart = () => {
-//   const [curtList, setCurtList] = useState([
-//     { price: 10 },
-//     { price: 20 },
-//     { price: 30 }
-//   ]);
-//   const [tP, setTP] = useState(0); // Total price state
-
-//   // Update total price whenever curtList changes
-//   useEffect(() => {
-//     const totalPrice = curtList.reduce((total, p) => total + p.price, 0);
-//     setTP(totalPrice);
-//   }, [curtList]); // Dependency array ensures it runs only when curtList changes
-
-//   // Example of adding an item to the cart
-//   const addItemToCart = (item) => {
-//     setCurtList((prevList) => [...prevList, item]); // Add new item to cart
-//   };
-
-//   return (
-//     <div>
-//       <h2>Shopping Cart</h2>
-//       <div>Total Price: ${tP}</div>
-//       <button onClick={() => addItemToCart({ price: 15 })}>Add $15 Item</button>
-//       <button onClick={() => addItemToCart({ price: 25 })}>Add $25 Item</button>
-//     </div>
-//   );
-// };
-
-// export default ShoppingCart;
-
-// import React, { useState, useEffect } from 'react';
-
-// const ShoppingCart = () => {
-//   const [curtList, setCurtList] = useState([
-//     { price: 10 },
-//     { price: 20 },
-//     { price: 30 }
-//   ]);
-//   const [tP, setTP] = useState(0); // Total price state
-
-//   // useEffect will only run when curtList changes
-//   useEffect(() => {
-//     const totalPrice = curtList.reduce((total, p) => total + p.price, 0);
-//     setTP(totalPrice);  // Update the total price state
-//   }, [curtList]);  // Dependency array ensures this runs only when curtList changes
-
-//   // Function to add item to cart and update curtList
-//   const addItemToCart = (item) => {
-//     setCurtList((prevList) => [...prevList, item]); // Update the cart list
-//   };
-
-//   return (
-//     <div>
-//       <h2>Shopping Cart</h2>
-//       <div>Total Price: ${tP}</div>
-//       <button onClick={() => addItemToCart({ price: 15 })}>Add $15 Item</button>
-//       <button onClick={() => addItemToCart({ price: 25 })}>Add $25 Item</button>
-//     </div>
-//   );
-// };
-
-// export default ShoppingCart;
