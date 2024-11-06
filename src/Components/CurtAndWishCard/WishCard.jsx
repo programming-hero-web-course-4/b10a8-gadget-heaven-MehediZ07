@@ -69,6 +69,7 @@ export default function WishCard({ product }) {
             <button
               onClick={() => {
                 handleAddToAddCurt(product.product_id);
+                handleRemoveProduct(product.product_id);
                 handleRefresh();
               }}
               className="btn  text-white  rounded-full bg-gradient-to-br  from-[#b356ff] via-[#b050ff] to-[#8cd3f6]"
