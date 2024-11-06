@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Helmet } from "react-helmet";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 export default function Policies() {
   const [tabIndex, setTabIndex] = useState(0);
@@ -9,6 +10,10 @@ export default function Policies() {
 
   return (
     <div>
+      <Helmet>
+        <title>Policies | Gadget Pookie</title>
+        <meta name="description" content="Statistics" />
+      </Helmet>
       <nav className="h-44  bg-gradient-to-b  from-[#64109c] via-[#d084fe] to-[#70cfff] pt-6">
         <h1 className="text-2xl text-center mx-auto font-bold text-white w-[90%]  lg:w-[70%] mx auto">
           Policies
