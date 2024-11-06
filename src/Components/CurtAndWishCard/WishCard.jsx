@@ -1,5 +1,6 @@
-import { useNavigate } from "react-router-dom";
-import { addToStoredCurtList } from "../../Utility/Utility";
+import { MdDeleteForever } from "react-icons/md";
+import { Link, useNavigate } from "react-router-dom";
+import { addToStoredCurtList, removeFromWishList } from "../../Utility/Utility";
 
 export default function WishCard({ product }) {
   const navigate = useNavigate();
@@ -10,6 +11,9 @@ export default function WishCard({ product }) {
 
   const handleAddToAddCurt = (id) => {
     addToStoredCurtList(id);
+  };
+  const handleRemoveProduct = (id) => {
+    removeFromWishList(id);
   };
 
   return (
@@ -26,7 +30,7 @@ export default function WishCard({ product }) {
           <h2 className="my-3">Price: {product.description}</h2>
           <h2 className="my-3">Price: {product.rating}</h2>
 
-          <div className="flex justify-start flex-grow-0 my-2 gap-6 overflow-x-auto whitespace-nowrap">
+          <div className="flex justify-start items-center flex-grow-0 my-2 gap-6 overflow-x-auto whitespace-nowrap">
             <button
               onClick={() => {
                 handleAddToAddCurt(product.product_id);
@@ -36,6 +40,14 @@ export default function WishCard({ product }) {
             >
               Add To Curt
             </button>
+            <Link Link to="/dashboard">
+              <button
+                onClick={() => handleRemoveProduct(product.product_id)}
+                className="text-3xl  rounded-full p-0 m-0 font-semibold hover:red-500 text-red-500 bg-white"
+              >
+                <MdDeleteForever />
+              </button>
+            </Link>
           </div>
         </div>
       </div>

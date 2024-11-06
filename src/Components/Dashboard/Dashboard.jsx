@@ -83,7 +83,7 @@ export default function Dashboard() {
   };
 
   return (
-    <div className=" ">
+    <div className="md:min-h-[600px] min-h-[400px]">
       <Helmet>
         <title>Dashboard | Gadget Pookie</title>
         <meta name="description" content="Dashboard" />
@@ -176,11 +176,35 @@ export default function Dashboard() {
                 </div>
               </div>
             </div>
+            {curtList.length === 0 ? (
+              <div className="flex gap-4 flex-col justify-center items-center  h-[500px]">
+                <h2 className="text-5xl">Please product add to curt first</h2>
+                <p>I wish You find the best product for you</p>
+                <button onClick={goToHome} className="btn">
+                  Go Home
+                </button>
+              </div>
+            ) : (
+              <p></p>
+            )}
             {curtList.map((p) => (
               <CurtAndWishCard key={p.product_id} product={p}></CurtAndWishCard>
             ))}
           </TabPanel>
           <TabPanel className="flex flex-col p-4  bg-transparent">
+            {wishList.length === 0 ? (
+              <div className="flex gap-4 flex-col justify-center items-center  h-[500px]">
+                <h2 className="text-5xl">
+                  Please add any product on your wish list first
+                </h2>
+                <p>I wish You find the best product for you</p>
+                <button onClick={goToHome} className="btn">
+                  Go Home
+                </button>
+              </div>
+            ) : (
+              <p></p>
+            )}
             {wishList.map((p) => (
               <WishCard key={p.product_id} product={p}></WishCard>
             ))}

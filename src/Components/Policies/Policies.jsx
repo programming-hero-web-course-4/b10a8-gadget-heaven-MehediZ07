@@ -14,7 +14,7 @@ export default function Policies() {
         <title>Policies | Gadget Pookie</title>
         <meta name="description" content="Statistics" />
       </Helmet>
-      <nav className="h-44  bg-gradient-to-b  from-[#64109c] via-[#d084fe] to-[#70cfff] pt-6">
+      <nav className="h-72 md:h-44  bg-gradient-to-b  from-[#64109c] via-[#d084fe] to-[#70cfff] pt-6">
         <h1 className="text-2xl text-center mx-auto font-bold text-white w-[90%]  lg:w-[70%] mx auto">
           Policies
         </h1>
@@ -22,14 +22,14 @@ export default function Policies() {
           See the our All policy.
         </p>
       </nav>
-      <div className="flex  -mt-24 bg-transparent max-w-6xl mx-auto">
+      <div className="flex -mt-52  md:-mt-24 bg-transparent max-w-6xl mx-auto">
         <Tabs
           onSelect={handleTabSelect}
           className="flex flex-col w-full bg-transparent"
         >
-          <TabList className="flex w-[101%] gap-4  justify-center  ring-0 p-4 bg-transparent  ">
+          <TabList className="flex flex-col md:flex-row items-center   w-[101%] gap-2 md:gap-4  justify-center  ring-0 p-4 bg-transparent  ">
             <Tab
-              className={`px-6 py-1 btn  rounded-full  border cursor-pointer mb-2 text-center focus:outline-none ${
+              className={`px-6 py-1 btn w-fit rounded-full  border cursor-pointer mb-2 text-center focus:outline-none ${
                 tabIndex === 0
                   ? " bg-white text-[#a73cff]"
                   : "bg-transparent text-white"
@@ -38,7 +38,7 @@ export default function Policies() {
               Warranty Policy
             </Tab>
             <Tab
-              className={`px-6 py-1 btn  rounded-full  border cursor-pointer mb-2 text-center focus:outline-none ${
+              className={`px-6 py-1 btn  w-fit rounded-full  border cursor-pointer mb-2 text-center focus:outline-none ${
                 tabIndex === 1
                   ? " bg-white text-[#a73cff]"
                   : "bg-transparent text-white"
@@ -47,7 +47,7 @@ export default function Policies() {
               Return Policy
             </Tab>
             <Tab
-              className={`px-6 py-1 btn  rounded-full  border cursor-pointer mb-2 text-center focus:outline-none ${
+              className={`px-6 py-1 btn w-fit rounded-full  border cursor-pointer mb-2 text-center focus:outline-none ${
                 tabIndex === 2
                   ? " bg-white text-[#a73cff]"
                   : "bg-transparent text-white"
@@ -58,7 +58,7 @@ export default function Policies() {
           </TabList>
 
           <TabPanel className=" pt-6 bg-transparent">
-            <div className="flex flex-col py-40 items-center ">
+            <div className="flex flex-col md:py-40 py-12 items-center ">
               <h1 className="text-3xl font-semibold text-center">
                 Warranty Policy
               </h1>
@@ -71,7 +71,7 @@ export default function Policies() {
             </div>
           </TabPanel>
           <TabPanel className="  bg-transparent">
-            <div className="flex flex-col py-40 items-center ">
+            <div className="flex flex-col md:py-40 py-12 items-center ">
               <h1 className="text-3xl font-semibold text-center">
                 Return Policy
               </h1>
@@ -84,7 +84,7 @@ export default function Policies() {
             </div>
           </TabPanel>
           <TabPanel className="   bg-transparent">
-            <div className="flex flex-col py-40 items-center ">
+            <div className="flex flex-col md:py-40 py-12 items-center ">
               <h1 className="text-3xl font-semibold text-center">
                 Refund Policy
               </h1>

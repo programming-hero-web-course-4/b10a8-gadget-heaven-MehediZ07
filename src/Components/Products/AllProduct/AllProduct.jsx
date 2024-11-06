@@ -4,12 +4,15 @@ import ProductCard from "../ProductCard/ProductCard";
 export default function AllProduct() {
   const { Category } = useParams();
 
-  console.log(Category);
   const data = useLoaderData();
   const [product, setProduct] = useState([...data]);
 
   useEffect(() => {
     if (!Category) {
+      setProduct(data.slice(0, 6));
+      return;
+    }
+    if (Category === "all") {
       setProduct(data);
       return;
     }

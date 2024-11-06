@@ -10,6 +10,10 @@ import {
   addToStoredCurtList,
   addToStoredWishList,
 } from "../../Utility/Utility";
+
+import React from "react";
+import ReactStars from "react-rating-stars-component";
+
 export default function ProductDetails() {
   const { id } = useParams();
   console.log(id);
@@ -45,6 +49,10 @@ export default function ProductDetails() {
     setAdded(false);
   };
 
+  const ratingChanged = (newRating) => {
+    console.log(newRating);
+  };
+
   return (
     <div>
       <nav className="h-56  bg-gradient-to-b from-[#64109c] via-[#d084fe] to-[#a8e2ff] pt-6">
@@ -68,7 +76,6 @@ export default function ProductDetails() {
         <div className=" flex flex-col space-y-2">
           <h1 className="text-xl font-semibold">{product.product_title}</h1>
           <p className="text-sm text-gray-700">Price: ${product.price}</p>
-
           {product.availability ? (
             <button className="btn btn-xs w-fit rounded-full border border-green-500 solid bg-green-50 text-green-500">
               In stoke
@@ -87,7 +94,6 @@ export default function ProductDetails() {
               <li className="text-xs ml-6  text-gray-500 list-decimal">{p}</li>
             ))}
           </ol>
-
           <Rating
             initialRating={product.rating}
             emptySymbol={<FaRegStar size={20} color="#ffcc26" />}
@@ -95,6 +101,17 @@ export default function ProductDetails() {
             fractions={2}
             readonly
           />
+          <ReactStars
+            count={product.rating}
+            onChange={ratingChanged}
+            size={24}
+            isHalf={true}
+            emptyIcon={<i className="far fa-star"></i>}
+            halfIcon={<i className="fa fa-star-half-alt"></i>}
+            fullIcon={<i className="fa fa-star"></i>}
+            activeColor="#ffd700"
+          />
+          ,
           <div className="flex flex-grow gap-4 justify-start items-center">
             <button
               onClick={() => {

@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import bannerImg from "../../../assets/image/HBanner.png";
 export default function HomeBanner() {
   return (
@@ -10,9 +11,11 @@ export default function HomeBanner() {
           Explore the latest gadgets that will take your experience to the next
           level. From smart devices to the coolest accessories, we have it all!
         </p>
-        <button className="py-2 px-4 font-semibold mx-auto bg-white rounded-full text-[#9538E2]">
-          Shop Now
-        </button>
+        <NavLink to="/dashboard" className="mx-auto">
+          <button className="py-2 px-4 font-semibold mx-auto bg-white rounded-full text-[#9538E2]">
+            Shop Now
+          </button>
+        </NavLink>
       </div>
       <div className="w-[90%] sm:w-[70%]  border border-gray-300 solid bg-white mt-12 bg-opacity-20 backdrop-blur-sm mx-auto rounded-xl mb-[10rem]">
         <div className=" m-3 md:m-6 ">

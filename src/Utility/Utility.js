@@ -22,13 +22,14 @@ const addToStoredCurtList = (id) => {
 
 const removeFromCurtList = (id) => {
   const storedList = getStoredCurtList();
-  if (storedList.includes(id)) {
-    const index = storedList.indexOf(id);
+  const index = storedList.indexOf(String(id));
+
+  if (index !== -1) {
     storedList.splice(index, 1);
+    console.log("Updated list after removal:", storedList);
     const storedListStr = JSON.stringify(storedList);
     localStorage.setItem("curt-list", storedListStr);
-    toast("❌ This Product is remove to your curt list.");
-  } else {
+    toast("❌ This Product is remove to your Curt list.");
   }
 };
 
@@ -56,13 +57,14 @@ const addToStoredWishList = (id) => {
 
 const removeFromWishList = (id) => {
   const storedList = getStoredWishList();
-  if (storedList.includes(id)) {
-    const index = storedList.indexOf(id);
+  const index = storedList.indexOf(String(id));
+
+  if (index !== -1) {
     storedList.splice(index, 1);
+    console.log("Updated list after removal:", storedList);
     const storedListStr = JSON.stringify(storedList);
     localStorage.setItem("wish-list", storedListStr);
     toast("❌ This Product is remove to your wish list.");
-  } else {
   }
 };
 

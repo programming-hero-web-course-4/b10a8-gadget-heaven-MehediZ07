@@ -1,6 +1,17 @@
 import { MdDeleteForever } from "react-icons/md";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { removeFromCurtList } from "../../Utility/Utility";
 export default function CurtAndWishCard({ product }) {
+  const navigate = useNavigate();
+
+  const handleRefresh = () => {
+    navigate(`/dashboard`);
+  };
+
+  const handleRemoveProduct = (id) => {
+    removeFromCurtList(id);
+  };
+
   return (
     <div className="mb-4 mt-6 flex flex-col md:flex-row border solid border-gray-400 rounded-xl p-4">
       <img
@@ -16,7 +27,10 @@ export default function CurtAndWishCard({ product }) {
 
         <div className="flex justify-start flex-grow-0 my-2 gap-6 overflow-x-auto whitespace-nowrap">
           <Link Link to="/dashboard">
-            <button className="text-3xl  rounded-full p-0 m-0 font-semibold hover:red-500 text-red-500 bg-white">
+            <button
+              onClick={() => handleRemoveProduct(product.product_id)}
+              className="text-3xl  rounded-full p-0 m-0 font-semibold hover:red-500 text-red-500 bg-white"
+            >
               <MdDeleteForever />
             </button>
           </Link>
