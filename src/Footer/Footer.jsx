@@ -1,10 +1,12 @@
 import { GiBowTieRibbon } from "react-icons/gi";
+import { Link } from "react-router-dom";
+
 export default function Footer() {
   return (
     <div className="bg-base-200">
       <div className="max-w-7xl mx-auto">
-        <div className="pt-12 relative ">
-          <h1 className="text-xl font-semibold text-center">
+        <div className="pt-12 flex flex-col items-center justify-center relative ">
+          <Link to="/" className="text-xl  font-semibold text-center">
             <span className="text-[1.65rem]">G</span>adget
             <span className="text-[#68cdff]  font-semibold text-xl relative">
               Pookie
@@ -12,7 +14,7 @@ export default function Footer() {
             <span className="absolute top-[3rem] text-pink-500  text-base rotate-45">
               <GiBowTieRibbon />
             </span>
-          </h1>
+          </Link>
           <p className="text-gray-600 text-center mx-auto pt-5 w-[90%] md:w-[70%]">
             Leading the way in cutting-edge technology and innovation.
           </p>

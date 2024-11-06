@@ -21,11 +21,11 @@ export default function Home() {
       </Helmet>
       <HomeBanner></HomeBanner>
       <div></div>
-      <div className="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-7 px-2 max-w-7xl mx-auto">
-        <div className="flex flex-col gap-4 sticky top-10 h-fit shadow-lg mx-2 px-2 pb-2 rounded-lg">
+      <div className="grid grid-cols-1 md:grid-cols-5 lg:grid-cols-7 px-2 max-w-7xl mx-auto">
+        <div className="flex flex-row md:flex-col flex-wrap mb-4 md:mb-0 ml-6  gap-4 justify-center items-center sticky py-8 md:pt-0 top-0 md:top-10 h-fit bg-white mx-2 px-2 pb-2 rounded-lg">
           <NavLink
             to={`/Product/all`}
-            className="btn btn-outline text-xs rounded-full border-2 md:text-base  btn-info"
+            className="btn btn-outline text-xs rounded-full w-fit md:w-36  border-2 md:text-base  btn-info"
             style={({ isActive }) =>
               isActive
                 ? {
@@ -40,7 +40,7 @@ export default function Home() {
           </NavLink>
           {categories.map((c) => (
             <NavLink
-              className="btn btn-outline text-xs rounded-full  border-2 md:text-base btn-info"
+              className="btn btn-outline text-xs w-fit md:w-36 rounded-full  border-2 md:text-base btn-info"
               style={({ isActive }) =>
                 isActive
                   ? {
@@ -58,7 +58,7 @@ export default function Home() {
           ))}
         </div>
 
-        <div className="col-span-2 h-fit  md:col-span-4 lg:col-span-6  ">
+        <div className="col-span-1 h-fit  md:col-span-4 lg:col-span-6  ">
           <Outlet></Outlet>
         </div>
       </div>

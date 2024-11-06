@@ -14,7 +14,7 @@ import ReactStars from "react-rating-stars-component";
 
 export default function ProductDetails() {
   const { id } = useParams();
-  console.log(id);
+
   const data = useLoaderData();
 
   const product = data.find((e) => e.product_id === parseInt(id));
@@ -54,7 +54,7 @@ export default function ProductDetails() {
   const [rating, setRating] = useState(product.rating);
 
   return (
-    <div>
+    <div className="min-h-[600px]">
       <nav className="h-56  bg-gradient-to-b from-[#64109c] via-[#d084fe] to-[#a8e2ff] pt-6">
         <h1 className="text-2xl text-center mx-auto font-bold text-white w-[90%]  lg:w-[70%] mx auto">
           Product Details
@@ -65,8 +65,8 @@ export default function ProductDetails() {
         </p>
       </nav>
 
-      <div className="w-[90%] md:w-[70%] bg-white flex -mt-24 gap-4 lg:w-[55%] border-2 mb-12 solid border-gray-200 rounded-xl p-4 max-w-7xl  mx-auto">
-        <div className="w-[35%] rounded-xl border-2 solid border-gray-100">
+      <div className="w-[90%] md:w-[70%] bg-white flex flex-col md:flex-row -mt-24 gap-4 lg:w-[55%] border-2 mb-12 solid border-gray-200 rounded-xl p-4 max-w-7xl  mx-auto">
+        <div className="md:w-[35%] w-[100%] rounded-xl border-2 solid border-gray-100">
           <img
             className="w-full h-full rounded-xl object-cover"
             src={product.product_image}
@@ -94,18 +94,21 @@ export default function ProductDetails() {
               <li className="text-xs ml-6  text-gray-500 list-decimal">{p}</li>
             ))}
           </ol>
-          <ReactStars
-            count={5}
-            size={24}
-            isHalf={true}
-            emptyIcon={<i className="far fa-star"></i>}
-            halfIcon={<i className="fa fa-star-half-alt"></i>}
-            fullIcon={<i className="fa fa-star"></i>}
-            activeColor="#ffcc26"
-            value={rating} // Set the rating dynamically
-            onChange={(newRating) => setRating(newRating)} // Update the rating on change
-          />
-          ,
+          <h2 className="my-3 font-semibold flex items-center justify-start">
+            <span className="mr-2 font-semibold">Rating: </span>
+            <ReactStars
+              count={5}
+              size={24}
+              isHalf={true}
+              emptyIcon={<i className="far fa-star"></i>}
+              halfIcon={<i className="fa fa-star-half-alt"></i>}
+              fullIcon={<i className="fa fa-star"></i>}
+              activeColor="#ffcc26"
+              value={rating} // Set the rating dynamically
+              onChange={(newRating) => setRating(newRating)} // Update the rating on change
+            />
+          </h2>
+
           <div className="flex flex-grow gap-4 justify-start items-center">
             <button
               onClick={() => {
@@ -114,7 +117,7 @@ export default function ProductDetails() {
                 handleCount();
               }}
               disabled={!product.availability}
-              className="btn text-white bg-gradient-to-r   from-[#9538E2] via-{#e0aeff} to-[#68cdff] "
+              className="btn md:text-lg text-white bg-gradient-to-r   from-[#9538E2] via-{#e0aeff} to-[#68cdff] "
             >
               <IoMdCart />
               Add to Cart
@@ -127,7 +130,7 @@ export default function ProductDetails() {
                 handleAddedWish();
                 handleCount();
               }}
-              className="btn btn-secondary"
+              className="btn text-2xl text-white btn-secondary"
             >
               <FaRegHeart></FaRegHeart>
             </button>
@@ -135,7 +138,7 @@ export default function ProductDetails() {
               onClick={() => {
                 handleGoBack();
               }}
-              className="btn font-bold"
+              className="btn btn-outline text-lg"
             >
               <RiArrowGoBackLine />
             </button>

@@ -22,7 +22,7 @@ export default function AllProduct() {
   }, [data, Category]);
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-0">
       {product.map((p) => (
         <ProductCard key={p.product_id} product={p}></ProductCard>
       ))}

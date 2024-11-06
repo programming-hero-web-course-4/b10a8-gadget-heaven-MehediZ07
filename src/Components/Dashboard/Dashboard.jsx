@@ -147,7 +147,7 @@ export default function Dashboard() {
                   </div>
                   <ul
                     tabIndex={0}
-                    className="dropdown-content menu  bg-white rounded-box z-[1] w-44 p-2 shadow"
+                    className="dropdown-content menu  bg-white rounded-box z-[1] w-64 p-2 shadow"
                   >
                     <li
                       className=" bg-white hover:bg-white hover:border-[#9538E2] border-2 solid border-[#9538E2] mb-2 rounded-lg"
