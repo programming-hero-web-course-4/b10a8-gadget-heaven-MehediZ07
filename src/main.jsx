@@ -8,6 +8,7 @@ import ErrorPage from "./Components/ErrorPage/ErrorPage";
 import Home from "./Components/Home/Home";
 import Login from "./Components/Login/Login";
 import SingUp from "./Components/Login/SingUp";
+import Policies from "./Components/policies/policies";
 import ProductDetails from "./Components/ProductDetails/ProductDetails";
 import AllProduct from "./Components/Products/AllProduct/AllProduct";
 import Statistics from "./Components/Statistics/Statistics";
@@ -59,6 +60,10 @@ const router = createBrowserRouter([
       {
         path: "/singup",
         element: <SingUp></SingUp>,
+      },
+      {
+        path: "/Policy",
+        element: <Policies></Policies>,
       },
     ],
   },

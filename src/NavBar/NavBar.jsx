@@ -79,6 +79,28 @@ const NavBar = () => {
       <li>
         <NavLink
           className="navlink"
+          to="/Policy"
+          style={({ isActive }) =>
+            isActive
+              ? {
+                  fontWeight: "600",
+                  color: pathname === "/" ? "#fff" : "#374151",
+                  textDecoration: "underline",
+                  backgroundColor: "transparent",
+                }
+              : {
+                  fontWeight: "400",
+                  backgroundColor: "transparent",
+                  color: pathname === "/" ? "#fff" : "#374151",
+                }
+          }
+        >
+          Policies
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          className="navlink"
           to="/login"
           style={({ isActive }) =>
             isActive
